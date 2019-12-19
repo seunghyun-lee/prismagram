@@ -1,0 +1,9 @@
+type User {
+  id: ID! @id
+  username: String! @id
+  email: String! @id
+  firstName: String @default(value:"")
+  lastName: String 
+  bio: String
+  
+}
