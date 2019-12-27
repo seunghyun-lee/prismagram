@@ -22,11 +22,11 @@ export default {
                 ]
              };
              try {
-                 const existingLike = await prisma.$exists.like({filterOption});
+                 const existingLike = await prisma.$exists.like(filterOption);
                  if(existingLike) {
-                    //  TO DO
+                    await prisma.deleteManyLikes(filterOption);
                  } else {
-                     await prisma.createLike({filterOption});
+                     await prisma.createLike(filterOption);
                  }
                  return true;
              } catch {
