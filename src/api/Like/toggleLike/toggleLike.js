@@ -26,10 +26,22 @@ export default {
                  if(existingLike) {
                     await prisma.deleteManyLikes(filterOption);
                  } else {
-                     await prisma.createLike(filterOption);
+                     await prisma.createLike({
+                         user: {
+                            connect: {
+                                id: user.id
+                            }
+                         },
+                         post: {
+                             connect: {
+                                 id: postId
+                             }
+                         }
+                     });
                  }
                  return true;
-             } catch {
+             } catch (error) {
+                 console.log(error);
                  return false;
              }
         }
