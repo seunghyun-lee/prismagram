@@ -2,7 +2,7 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
     Mutation: {
-        editUser: (_, args, { request }) => {
+        editUser: (_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { username, email, firstname, lastname, bio, avartar } = args;
             const { user } = request;
