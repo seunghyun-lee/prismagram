@@ -15,7 +15,7 @@ const server = new GraphQLServer({
 });
 server.express.use(logger("dev"));
 server.express.use(authenticateJwt);
-server.express.post("/api/upload", uploadMiddleware, uploadMiddleware);
+server.express.post("/api/upload", uploadMiddleware, uploadController);
 
 server.start({ port:PORT }, () => 
     console.log(`✅  server running on http://localhost:${PORT}`)
