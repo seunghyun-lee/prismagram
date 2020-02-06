@@ -1,7 +1,0 @@
-# endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: "https://eu1.prisma.sh/seunghyun-eb3045/prismagram/dev"
-datamodel: datamodel.prisma
-
-generate:
-  - generator: javascript-client
-    output: ./generated/prisma-client/
